@@ -20,11 +20,11 @@ var Main = React.createClass({
 	},	
 
 	// This function allows childrens to update the parent.
-	setTerm: function(term, b_Year, e_Year){
+	setTerm: function(term, startYear, endYear){
 		this.setState({
 			searchTerm: term,
-			beginYear: b_Year,
-			endYear: e_Year
+			startYear: startYear,
+			endYear: endYear
 		})
 	},
 
@@ -41,7 +41,7 @@ var Main = React.createClass({
 				.then(function(data){
 					if (data != this.state.results)
 					{
-						console.log('data23: ' + data);
+						console.log(data);
 
 						this.setState({
 							results: data
@@ -52,7 +52,7 @@ var Main = React.createClass({
 
 			helpers.getHistory()
 				.then(function(response){
-					console.log("Currently History", response.data);
+					console.log( response.data);
 					if (response != this.state.history){
 						console.log ("Saved Articles", response.data);
 
